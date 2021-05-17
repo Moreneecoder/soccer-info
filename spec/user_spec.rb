@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -15,10 +19,10 @@ RSpec.describe User, type: :model do
       end
 
       it 'must be unique' do
-        unique_user = described_class.create!(name: 'Another One')
+        described_class.create!(name: 'Another One')
         expect(user).to be_valid
 
-        unique_user = described_class.create!(name: 'Someone')
+        described_class.create!(name: 'Someone')
         expect(user).to_not be_valid
       end
 
@@ -30,11 +34,9 @@ RSpec.describe User, type: :model do
       end
 
       it 'must not be longer than twenty characters' do
-
         another_user.name = 'Abcbefghij Abcbefghijkl'
         expect(another_user).to_not be_valid
       end
-
     end
   end
 
@@ -46,8 +48,9 @@ RSpec.describe User, type: :model do
     end
 
     it 'has many votes' do
-        expect(user.macro).to eq(:has_many)
-      end
+      expect(user.macro).to eq(:has_many)
+    end
   end
-
 end
+
+# rubocop:enable Metrics/BlockLength
