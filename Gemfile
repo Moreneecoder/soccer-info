@@ -56,5 +56,15 @@ group :test do
   gem 'webdrivers'
 end
 
+group :development, :test do
+  gem "database_cleaner"
+  gem "rspec-rails"
+end
+
+# group :test do
+#   gem "capybara"
+#   gem "selenium-webdriver"
+# end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
