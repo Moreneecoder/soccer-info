@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_210320) do
+ActiveRecord::Schema.define(version: 2021_05_17_230542) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "author_id", null: false
@@ -19,7 +19,16 @@ ActiveRecord::Schema.define(version: 2021_05_17_210320) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
     t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "priority"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,5 +37,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_210320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users", column: "author_id"
 end
