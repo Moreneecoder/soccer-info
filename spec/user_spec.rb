@@ -39,7 +39,15 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
-      
+    user = User.reflect_on_association(:articles)
+
+    it 'has many articles' do
+      expect(user.macro).to eq(:has_many)
+    end
+
+    it 'has many votes' do
+        expect(user.macro).to eq(:has_many)
+      end
   end
-  
+
 end
