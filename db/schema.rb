@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_230542) do
+ActiveRecord::Schema.define(version: 2021_05_17_232526) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "author_id", null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_230542) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
+    t.integer "category_id", null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 2021_05_17_230542) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_votes_on_article_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "votes", "articles"
+  add_foreign_key "votes", "users"
 end
