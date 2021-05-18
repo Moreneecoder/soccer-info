@@ -20,15 +20,23 @@ RSpec.describe Category, type: :model do
         expect(new_category).to be_valid
       end
     end
-  end
 
-  describe 'priority' do
-    it 'must be present' do
-      category = described_class.new(name: 'Africa', priority: 2)
-      expect(category).to be_valid
+    describe 'priority' do
+      it 'must be present' do
+        category = described_class.new(name: 'Africa', priority: 2)
+        expect(category).to be_valid
 
-      category.priority = nil
-      expect(category).to_not be_valid
+        category.priority = nil
+        expect(category).to_not be_valid
+      end
     end
   end
+
+  describe 'associations:' do
+    it 'has many articles' do
+      category = Category.reflect_on_association(:articles)
+      expect(category.macro).to eq(:has_many)
+    end
+  end
+
 end
