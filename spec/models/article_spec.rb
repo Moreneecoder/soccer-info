@@ -42,4 +42,21 @@ RSpec.describe Article, type: :model do
     end
 
   end
+
+  describe 'associations:' do
+    it 'has many votes' do
+      article = Article.reflect_on_association(:votes)
+      expect(article.macro).to eq(:has_many)
+    end
+
+    it 'belongs to an author' do
+      article = Article.reflect_on_association(:author)
+      expect(article.macro).to eq(:belongs_to)
+    end
+
+    it 'belongs to a category' do
+      article = Article.reflect_on_association(:category)
+      expect(article.macro).to eq(:belongs_to)
+    end
+  end
 end
