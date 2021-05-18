@@ -2,8 +2,25 @@
 
 $base-color: #eb712f;
 
+.base-color {
+  color: $base-color;
+}
+
+.base-bg-color {
+  background-color: $base-color;
+}
+
 h1 {
   color: $base-color;
+}
+
+.navbar .navbar-brand {
+  color: $base-color;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: $base-color;
+  text-decoration: underline;
 }
 
 .sign-up-div .btn {
