@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
@@ -14,7 +16,7 @@ RSpec.describe Category, type: :model do
       end
 
       it 'must be unique' do
-        category = described_class.create(name: 'Internationals', priority: 2)
+        described_class.create(name: 'Internationals', priority: 2)
         new_category = described_class.new(name: 'Grassroots', priority: 1)
 
         expect(new_category).to be_valid
@@ -38,5 +40,6 @@ RSpec.describe Category, type: :model do
       expect(category.macro).to eq(:has_many)
     end
   end
-
 end
+
+# rubocop:enable Metrics/BlockLength
