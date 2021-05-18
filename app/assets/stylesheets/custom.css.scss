@@ -1,5 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+$base-color: #eb712f;
+
 .navbar {
   background-color: #fdd6ea !important;
 }
@@ -9,5 +11,10 @@
 }
 
 h1 {
-  color: red;
+  color: $base-color;
+}
+
+.sign-up-div .btn {
+  color: white;
+  background-color: $base-color;
 }
