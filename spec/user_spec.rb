@@ -41,7 +41,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
-
     it 'has many articles' do
       user = User.reflect_on_association(:articles)
       expect(user.macro).to eq(:has_many)
