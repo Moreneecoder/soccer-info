@@ -43,10 +43,27 @@ h1 {
   left: 10px;
 }
 
+.featured-img-height {
+  height: 500px;
+}
+
 .background-img-setting {
   background-color: #ccc;
-  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.categories-img-height {
+  height: 250px;
+}
+
+.category-name {
+  top: 10px;
+  left: 25px;
+}
+
+.category-title {
+  bottom: 15px;
+  left: 25px;
 }
