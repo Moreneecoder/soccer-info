@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top border-bottom border-3 border-secondary">
+  <div class="container-fluid">
+    <%= link_to 'SoccerInfo', root_path, class: 'navbar-brand fw-bolder' %>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: 'nav-link fw-bolder active', 'aria-current': 'page' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Write An Article', '#', class: 'nav-link fw-bolder' %>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav mb-2 mb-lg-0 ml-auto" style="height: 18px">
+        <li class="nav-item border-end border-3 border-secondary d-flex align-items-center">
+          <%= link_to 'LOGIN', '#', class: 'nav-link fw-bolder' %>
+        </li>
+
+        <li class="nav-item d-flex align-items-center">
+          <%= link_to 'REGISTER', users_signup_path, class: 'nav-link fw-bolder' %>
+        </li>
+
+        <li class="nav-item d-flex align-items-center">
+          <i class="fas fa-search text-secondary"></i>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
