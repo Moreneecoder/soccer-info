@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 $base-color: #eb712f;
+$footer-color: #403230;
 
 .base-color {
   color: $base-color;
@@ -66,4 +67,22 @@ h1 {
 .category-title {
   bottom: 15px;
   left: 25px;
+}
+
+footer {
+  background-color: $footer-color;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer :nth-child(2) a,
+footer :nth-child(3) :first-child {
+  font-size: 0.9em;
+}
+
+.social {
+  font-size: 1.4em;
+  color: $base-color;
 }
