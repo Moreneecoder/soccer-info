@@ -1,7 +1,3 @@
-# frozen_string_literal: true
-
-# rubocop:disable Metrics/BlockLength
-
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :routing do
@@ -39,5 +35,3 @@ RSpec.describe UsersController, type: :routing do
     end
   end
 end
-
-# rubocop:enable Metrics/BlockLength
