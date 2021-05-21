@@ -1,24 +1,83 @@
-# README
+# SoccerInfo:Microverse Rails Capstone Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This project is a soccer blogging platform where registered users can publish their opinions on footballing issues. Users can also vote to control the visibility of articles.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby v3.0.0
+- Ruby on Rails 6
 
-* System dependencies
+## Live Demo
 
-* Configuration
+TBA
 
-* Database creation
+## Getting Started
 
-* Database initialization
+To get a local copy up and running follow these simple example steps.
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+- Install Ruby: 2.7.0
+- Install Rails: 5.2.3
 
-* Deployment instructions
+### Setup
 
-* ...
+Instal gems with:
+
+```
+bundle install
+```
+
+Setup database with:
+
+```
+   rails db:create
+   rails db:reset
+   rails db:migrate
+```
+
+### Usage
+
+Start server with:
+
+```
+    rails server
+```
+
+Open `http://localhost:3000/` in your browser.
+
+### Run tests
+
+```
+    rpsec --format documentation
+```
+
+### Deployment
+
+TBA
+
+## Authors
+
+👤 **Bello Morenikeji Fuad**
+
+- GitHub: [@moreenecoder](https://github.com/Moreneecoder)
+- Twitter: [@mo_bello19](https://twitter.com/mo_bello19)
+- LinkedIn: [Morenikeji Bello](https://linkedin.com/morenikeji-bello)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+[Microverse](https://microverse.org)
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed.
