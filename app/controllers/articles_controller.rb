@@ -22,7 +22,6 @@ class ArticlesController < ApplicationController
   def user_params
     params.require(:article).permit(:title, :text, :image, :category_id)
   end
-  
 end
 
 # rubocop:enable Style/Documentation
