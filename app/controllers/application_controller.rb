@@ -1,7 +1,3 @@
-# frozen_string_literal: true
-
-# rubocop:disable Style/Documentation
-
 class ApplicationController < ActionController::Base
   def user_logged_in?
     !!session[:user_id]
@@ -18,5 +14,3 @@ class ApplicationController < ActionController::Base
     @current_user = User.find(session[:user_id]) if session[:user_id]
   end
 end
-
-# rubocop:enable Style/Documentation

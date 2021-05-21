@@ -1,7 +1,3 @@
-# frozen_string_literal: true
-
-# rubocop:disable Style/Documentation
-
 class CategoriesController < ApplicationController
   before_action :current_user, only: %i[index]
 
@@ -19,5 +15,3 @@ class CategoriesController < ApplicationController
     highest.keys.first
   end
 end
-
-# rubocop:enable Style/Documentation
