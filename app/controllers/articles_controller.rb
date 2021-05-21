@@ -10,7 +10,19 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def new; end
+  def new
+    @article = Article.new
+  end
+
+  def create
+    p params
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:article).permit(:title, :text, :image, :category_id)
+  end
+  
 end
 
 # rubocop:enable Style/Documentation
