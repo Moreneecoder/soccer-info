@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'users/logout', to: 'users#end_user_session'
 
   resources :users, except: [:new]
-  resources :categories, only: [:index, :show]
+  resources :categories, only: %i[index show]
   resources :articles, only: [:new]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
