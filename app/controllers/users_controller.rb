@@ -25,21 +25,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    # if @user.save
-    #   format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #   format.json { render :show, status: :created, location: @user }
-    # else
-    #   redirect_to users_signup_path
-    #   # format.html { redirect_to users_signup_path, status: :unprocessable_entity }
-    #   # format.json { render json: @user.errors, status: :unprocessable_entity }
-    # end
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-        # redirect_to users_signup_path
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -71,6 +61,11 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def end_user_session
+    session[:user_id] = nil
+    redirect_to users_signin_path
   end
 
   # DELETE /users/1 or /users/1.json

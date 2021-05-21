@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+    before_action :current_user, only: %i[index]
+
     def index
         @categories = Category.order('priority ASC')
         @featured = Article.find(featured)

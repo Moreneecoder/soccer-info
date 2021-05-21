@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users/signup', to: 'users#new'
   get 'users/signin', to: 'users#signin'
   post 'users/signin', to: 'users#start_user_session'
+  get 'users/logout', to: 'users#end_user_session'
 
   resources :users, except: [:new]
   resources :categories, only: [:index, :show]
