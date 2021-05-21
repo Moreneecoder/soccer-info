@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
     end
 
     def show
-      
+      @articles = Category.find(params[:id]).articles.order('id DESC')
     end
 
     def featured

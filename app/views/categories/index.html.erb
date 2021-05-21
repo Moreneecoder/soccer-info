@@ -1,4 +1,8 @@
 <div class="sticky-top-padding">
+  <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+  <% end %>
+
   <section class="featured">
     <div style="<%= featured_img(@featured.image) %>" class="featured-img-height background-img-setting position-relative">
       <div class="featured-item position-absolute">

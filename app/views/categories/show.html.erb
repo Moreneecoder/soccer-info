@@ -1,71 +1,52 @@
 <div class="sticky-top-padding">
   <section class="row categories">
-    <div class="col-6 col-lg-3 p-0">
-      <div class="featured-img categories-img-height background-img-setting position-relative">
-        
-      </div>
-    </div>
+    <% count_image = 2
+       format_ = 'image-first'
+     %>
 
-    <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
-        <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
-          International
-        </span>
+    <% for article in @articles %>
+        <% if format_ == 'image-first' %>
 
-        <h5 class="mt-2">All roads lead to Euro 2020</h5>
+        <div class="col-6 col-lg-3 p-0">
+            <div style="<%= featured_img(article.image) %>" class="categories-img-height background-img-setting position-relative">
+                
+            </div>
+        </div>
 
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas atque culpa tempora reiciendis corrupti obcaecati in dignissimos quia aperiam quaerat.</p>
-    </div>
+        <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
+            <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
+            <%= article.category.name %>
+            </span>
 
-    <div class="col-6 col-lg-3 p-0">
-      <div class="featured-img categories-img-height background-img-setting position-relative">
-        
-      </div>
-    </div>
+            <h5 class="mt-2"><%= article.title %></h5>
 
-    <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
-        <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
-          International
-        </span>
+            <p><%= article.text %></p>
+        </div>
 
-        <h5 class="mt-2">Messi scores in crucial qualifier for Argentina</h5>
+        <% count_image -= 1 %>
+        <% format_ = 'details-first' if count_image.zero? %>
 
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas atque culpa tempora reiciendis corrupti obcaecati in dignissimos quia aperiam quaerat.</p>
-    </div>
+        <% elsif format_ == 'details-first' %>
+          
+          <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
+            <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
+            <%= article.category.name %>
+            </span>
 
-  </section>
+            <h5 class="mt-2"><%= article.title %></h5>
 
-  <section class="row categories">
-    <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
-        <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
-          International
-        </span>
+            <p><%= article.text %></p>
+          </div>
 
-        <h5 class="mt-2">Can Haaland lead Norway to glory?</h5>
+          <div class="col-6 col-lg-3 p-0">
+            <div style="<%= featured_img(article.image) %>" class="categories-img-height background-img-setting position-relative">
+                
+            </div>
+          </div>
 
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas atque culpa tempora reiciendis corrupti obcaecati in dignissimos quia aperiam quaerat.</p>
-    </div>
+          <% count_image += 1 %>
+        <% format_ = 'image-first' if count_image == 2 %>
+        <% end %>
+    <% end %>
 
-    <div class="col-6 col-lg-3 p-0">
-      <div class="featured-img categories-img-height background-img-setting position-relative">
-        
-      </div>
-    </div>
-
-    <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
-        <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
-          International
-        </span>
-
-        <h5 class="mt-2">Benzema returns to France squad</h5>
-
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas atque culpa tempora reiciendis corrupti obcaecati in dignissimos quia aperiam quaerat.</p>
-    </div>
-
-    <div class="col-6 col-lg-3 p-0">
-      <div class="featured-img categories-img-height background-img-setting position-relative">
-        
-      </div>
-    </div>
-
-  </section>
 </div>

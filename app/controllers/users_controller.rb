@@ -46,6 +46,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def signin; end
+
+  def start_user_session
+    if User.exists?(name: params[:name])
+      @user = User.find_by(name: params['name'])
+      session[:user_id] = @user.id
+      flash[:notice] = 'You logged in successfully'
+      redirect_to root_path
+    else
+      flash[:alert] = 'Invalid Username'
+      render :signin
+    end
+  end
+
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
