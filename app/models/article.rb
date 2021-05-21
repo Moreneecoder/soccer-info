@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Article < ApplicationRecord
   validates :author_id, presence: true
   validates :title, presence: true, length: { maximum: 70 }
