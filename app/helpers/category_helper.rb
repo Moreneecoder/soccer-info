@@ -3,4 +3,3 @@ module CategoryHelper
     "background-image: linear-gradient(to bottom, rgba(11, 11, 13, 0.3), rgba(0, 0, 0, 0.923)), url('#{img}')"
   end
 end
-
