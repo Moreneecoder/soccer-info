@@ -1,11 +1,5 @@
 <div class="sticky-top-padding">
-    <% if flash[:notice] %>
-      <div class="alert alert-success"><%= flash[:notice] %></div>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <div class="alert alert-danger"><%= flash[:alert] %></div>
-    <% end %>
+ <%= flash_message %>
 
   <section class="row categories">
     <% count_image = 2

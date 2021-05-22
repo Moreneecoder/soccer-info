@@ -15,6 +15,6 @@ class VotesController < ApplicationController
         end
       end
 
-      redirect_to categories_path
+      redirect_to article_path
     end
 end

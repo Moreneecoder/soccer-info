@@ -1,0 +1,16 @@
+<div class="sticky-top-padding container-md">
+ <%= flash_message %>
+ 
+  <section class="row mt-3">
+    <div class="col-12">
+      <h4 class="fw-bolder"> <%= @article.title %> </h4>
+      <p>by <%= @article.author.name %></p>
+
+      <div style="<%= featured_img(@article.image_url) %>" class="featured-img-height background-img-setting position-relative mb-3">
+      
+      </div>
+
+      <p><%= @article.text %></p>
+    </div>
+  </section>
+</div>

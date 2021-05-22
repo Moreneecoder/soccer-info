@@ -17,10 +17,13 @@ class ArticlesController < ApplicationController
       flash[:notice] = 'Article successfully published'
       redirect_to @article
     else
-      p @article.errors.full_messages
-      # flash[:alert] = @article.errors
-      # render :new
+      flash[:alert] = @article.errors
+      render :new
     end
+  end
+
+  def show
+    @article = Article.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
