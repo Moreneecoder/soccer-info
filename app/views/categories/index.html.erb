@@ -3,6 +3,10 @@
       <div class="alert alert-success"><%= flash[:notice] %></div>
   <% end %>
 
+  <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% end %>
+
   <% unless @featured.nil? %>
     <section class="featured">
     <div style="<%= featured_img(@featured.image_url) %>" class="featured-img-height background-img-setting position-relative">

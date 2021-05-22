@@ -1,4 +1,12 @@
 <div class="sticky-top-padding">
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+
   <section class="row categories">
     <% count_image = 2
        format_ = 'image-first'
@@ -22,7 +30,7 @@
 
             <p><%= article.text %></p>
 
-            <%= link_to 'Upvote', new_vote_path, class: "btn base-bg-color text-white" %>
+            <%= link_to 'Upvote', "/upvote/#{article.id}", class: "btn base-bg-color text-white" %>
         </div>
 
         <% count_image -= 1 %>
@@ -39,7 +47,7 @@
 
             <p><%= article.text %></p>
 
-            <%= link_to 'Upvote', new_vote_path, class: "btn base-bg-color text-white" %>
+            <%= link_to 'Upvote', "/upvote/#{article.id}", class: "btn base-bg-color text-white" %>
           </div>
 
           <div class="col-6 col-lg-3 p-0">
