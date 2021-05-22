@@ -14,9 +14,44 @@
     </div>
   </section>
 
-  <div class="row mt-3">
-    <h4 class="fw-bolder"> <%= @article.title %> </h4>
+    <div class="row">
+        <div class="col-md-5">
 
-    
-  </div>
+        <% unless @article.comments.empty? %>
+          <h4 class="fw-bolder base-color"> Comments </h4>
+        <% end %>
+
+        <% for comment in @article.comments do %>
+         <div class="card p-3 mb-3">
+            <p class="fw-bolder mb-0"> <%= comment.user.name %> </p>
+            <span> <%= comment.body %> </span>
+         </div>
+         <% end %>
+
+        </div>
+    </div>
+
+    <% if session[:user_id] %>
+      <div class="row mt-3">
+        <div class="col-md-5">
+            <h4 class="fw-bolder"> Leave A Comment </h4>
+
+            <%= form_with(model: [@article, @article.comments.build], local: true) do |form| %>
+
+            <div class="mb-3">
+                <%= form.text_area :body, class: 'form-control', 'rows': 5, required: true %>
+            </div>
+
+            <%= form.hidden_field article_id: @article.id %>
+
+            <div class="actions mb-3">
+                <%= form.submit 'Create Comment', class: "btn base-bg-color text-white" %>
+            </div>
+            <% end %>
+        </div>
+      </div>
+    <% else %>
+        <div class="alert alert-info">Log in/Register to comment</div>
+    <% end %>
+
 </div>

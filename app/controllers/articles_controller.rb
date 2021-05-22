@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user, only: %i[new show]
+  before_action :authenticate_user, only: %i[new]
   before_action :current_user, only: %i[new create show]
 
   def index
