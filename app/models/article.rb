@@ -1,4 +1,7 @@
 class Article < ApplicationRecord
+
+  include ImageUploader::Attachment(:image)
+
   validates :author_id, presence: true
   validates :title, presence: true, length: { maximum: 70 }
   validates :text, presence: true

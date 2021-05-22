@@ -3,21 +3,23 @@
       <div class="alert alert-success"><%= flash[:notice] %></div>
   <% end %>
 
-  <section class="featured">
-    <div style="<%= featured_img(@featured.image) %>" class="featured-img-height background-img-setting position-relative">
+  <% unless @featured.nil? %>
+    <section class="featured">
+    <div style="<%= featured_img(@featured.image_url) %>" class="featured-img-height background-img-setting position-relative">
       <div class="featured-item position-absolute">
         <h4 class="featured-heading fw-bolder base-color"><%= @featured.title %></h4>
         <p class="featured-snippet text-white"><%= @featured.text %></p>
       </div>
     </div>
   </section>
+  <% end %>
 
   <section class="row categories">
 
     <% for category in @categories do %>
         <% unless category.articles.empty? %>
         <div class="col-6 col-lg-3 p-0">
-        <div style="<%= featured_img(category.articles.last.image) %>" class="categories-img-height background-img-setting position-relative">
+        <div style="<%= featured_img(category.articles.last.image_url) %>" class="categories-img-height background-img-setting position-relative">
             <span class="category-name position-absolute border-bottom border-3 border-warning text-white fw-bolder pb-1">
             <%= category.name %>
             </span>

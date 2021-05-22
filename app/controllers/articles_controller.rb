@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user, only: %i[new show]
-  before_action :current_user, only: %i[new show]
+  before_action :current_user, only: %i[new create show]
 
   def index
     @articles = Article.all
@@ -11,11 +11,20 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    p params
+    @article = @current_user.articles.build(article_params)
+
+    if @article.save
+      flash[:notice] = 'Article successfully published'
+      redirect_to @article
+    else
+      p @article.errors.full_messages
+      # flash[:alert] = @article.errors
+      # render :new
+    end
   end
 
   # Only allow a list of trusted parameters through.
-  def user_params
+  def article_params
     params.require(:article).permit(:title, :text, :image, :category_id)
   end
 end

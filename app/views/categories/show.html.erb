@@ -8,7 +8,7 @@
         <% if format_ == 'image-first' %>
 
         <div class="col-6 col-lg-3 p-0">
-            <div style="<%= featured_img(article.image) %>" class="categories-img-height background-img-setting position-relative">
+            <div style="<%= featured_img(article.image_url) %>" class="categories-img-height background-img-setting position-relative">
                 
             </div>
         </div>
@@ -21,6 +21,8 @@
             <h5 class="mt-2"><%= article.title %></h5>
 
             <p><%= article.text %></p>
+
+            <%= link_to 'Upvote', new_vote_path, class: "btn base-bg-color text-white" %>
         </div>
 
         <% count_image -= 1 %>
@@ -36,10 +38,12 @@
             <h5 class="mt-2"><%= article.title %></h5>
 
             <p><%= article.text %></p>
+
+            <%= link_to 'Upvote', new_vote_path, class: "btn base-bg-color text-white" %>
           </div>
 
           <div class="col-6 col-lg-3 p-0">
-            <div style="<%= featured_img(article.image) %>" class="categories-img-height background-img-setting position-relative">
+            <div style="<%= featured_img(article.image_url) %>" class="categories-img-height background-img-setting position-relative">
                 
             </div>
           </div>

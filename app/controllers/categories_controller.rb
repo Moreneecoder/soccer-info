@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
-  before_action :current_user, only: %i[index]
+  before_action :current_user, only: %i[index show]
 
   def index
     @categories = Category.order('priority ASC')
-    @featured = Article.find(featured)
+    @featured = Article.find(featured) if Article.exists?(id: featured)
   end
 
   def show

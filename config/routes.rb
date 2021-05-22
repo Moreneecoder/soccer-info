@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users/signin', to: 'users#signin'
   post 'users/signin', to: 'users#start_user_session'
   get 'users/logout', to: 'users#end_user_session'
+  get 'categories/:id/upvote', to: 'votes#upvote'
 
   resources :users, except: [:new]
   resources :categories, only: %i[index show]
