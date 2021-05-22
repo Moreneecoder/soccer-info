@@ -1,20 +1,20 @@
 class VotesController < ApplicationController
-    before_action :authenticate_user
-    before_action :current_user, only: %i[upvote]
+  before_action :authenticate_user
+  before_action :current_user, only: %i[upvote]
 
-    def upvote
-      if Vote.exists?(user_id: @current_user.id, article_id: params[:id])
-        flash[:alert] = 'You already upvoted this article'
+  def upvote
+    if Vote.exists?(user_id: @current_user.id, article_id: params[:id])
+      flash[:alert] = 'You already upvoted this article'
+    else
+      vote = @current_user.votes.build(article_id: params[:id])
+
+      if vote.save
+        flash[:notice] = 'Article successfully upvoted'
       else
-        vote = @current_user.votes.build(article_id: params[:id])
-
-        if vote.save
-          flash[:notice] = 'Article successfully upvoted'
-        else
-          flash[:alert] = @article.errors
-        end
+        flash[:alert] = @article.errors
       end
-
-      redirect_to article_path
     end
+
+    redirect_to article_path
+  end
 end

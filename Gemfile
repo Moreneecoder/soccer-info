@@ -25,8 +25,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'image_processing', '~> 1.2'
+gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'shrine', '~> 3.3'
 gem 'shrine-cloudinary', '~> 1.1'
 

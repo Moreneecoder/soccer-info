@@ -1,5 +1,4 @@
 class Article < ApplicationRecord
-
   include ImageUploader::Attachment(:image)
 
   validates :author_id, presence: true
