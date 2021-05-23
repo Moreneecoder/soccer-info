@@ -24,7 +24,7 @@
                 <%= link_to article.title, article, class: 'text-dark text-decoration-none' %>
             </h5>
 
-            <p><%= article.text %></p>
+            <p class="text-truncate"><%= article.text %></p>
 
             <%= link_to 'Upvote', "/upvote/#{article.id}", class: "btn base-bg-color text-white" %>
         </div>
@@ -43,7 +43,7 @@
                 <%= link_to article.title, article, class: 'text-dark text-decoration-none' %>
             </h5>
 
-            <p><%= article.text %></p>
+            <p class="text-truncate"><%= article.text %></p>
 
             <%= link_to 'Upvote', "/upvote/#{article.id}", class: "btn base-bg-color text-white" %>
           </div>
