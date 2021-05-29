@@ -16,6 +16,12 @@
           <%= link_to 'Write An Article', new_article_path, class: 'nav-link fw-bolder' %>
         </li>
 
+        <% for category in @categories %>
+          <li class="nav-item">
+            <%= link_to category.name, category_path(category.id), class: 'nav-link fw-bolder' %>
+          </li>
+        <% end %>
+
       </ul>
 
       <ul class="navbar-nav mb-2 mb-lg-0 ml-auto" style="height: 18px">
