@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @categories = Category.order('priority ASC')
     @article = Article.find(params[:id])
   end
 
