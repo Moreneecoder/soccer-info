@@ -17,9 +17,7 @@
     <div class="row">
         <div class="col-md-5">
 
-        <% unless @article.comments.empty? %>
-          <h4 class="fw-bolder base-color"> Comments </h4>
-        <% end %>
+        <%= comment_title(@article) %>
 
         <% for comment in @article.comments do %>
          <div class="card p-3 mb-3">
