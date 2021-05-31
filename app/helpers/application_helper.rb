@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def all_categories
     Category.order('priority ASC')
   end
@@ -30,7 +29,7 @@ module ApplicationHelper
       end
 
       content << content_tag(:li, class: 'nav-item d-flex align-items-center me-2') do
-        link_to @current_user.name, '#' , class: 'nav-link fw-bolder'
+        link_to @current_user.name, '#', class: 'nav-link fw-bolder'
       end
 
       content.html_safe
