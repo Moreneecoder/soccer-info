@@ -14,4 +14,12 @@ module ArticleHelper
     end
     content.html_safe
   end
+
+  def display_comment_form
+    if session[:user_id]
+      render 'comment_form', article: @article
+    else
+      content_tag(:div, 'Log in/Register to comment', class: 'alert alert-info')
+    end
+  end
 end
