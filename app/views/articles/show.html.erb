@@ -17,14 +17,9 @@
     <div class="row">
         <div class="col-md-5">
 
-        <%= comment_title(@article) %>
+        <%= comment_title %>
 
-        <% for comment in @article.comments do %>
-         <div class="card p-3 mb-3">
-            <p class="fw-bolder mb-0"> <%= comment.user.name %> </p>
-            <span> <%= comment.body %> </span>
-         </div>
-         <% end %>
+        <%= display_comments %>
 
         </div>
     </div>
