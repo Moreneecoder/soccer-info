@@ -11,7 +11,16 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    p params
+    category_params
+    @category = Category.new(category_params)
+
+    if @category.save
+      flash[:notice] = "Category #{@category.name.capitalize} successfully created"
+      redirect_to @category
+    else
+      # flash[:alert] = @category.errors.full_messages
+      render :new
+    end
   end
 
   def show
@@ -25,5 +34,9 @@ class CategoriesController < ApplicationController
 
   def get_categories
     @categories = Category.order('priority ASC')
+  end
+
+  def category_params
+    params.require(:category).permit(:name, :priority)
   end
 end
