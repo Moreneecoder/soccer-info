@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :current_user, only: %i[index show]
+  before_action :current_user, only: %i[index show new edit update]
   before_action :get_categories, only: %i[index]
 
   def index
@@ -18,13 +18,27 @@ class CategoriesController < ApplicationController
       flash[:notice] = "Category #{@category.name.capitalize} successfully created"
       redirect_to @category
     else
-      # flash[:alert] = @category.errors.full_messages
       render :new
     end
   end
 
   def show
     @articles = Category.find(params[:id]).articles.order('id DESC')
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+
+    if @category.update(category_params)
+      flash[:notice] = "Category successfully edited"
+      redirect_to @category
+    else
+      render :edit
+    end
   end
 
   def featured

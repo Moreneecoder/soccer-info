@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'upvote/:id', to: 'votes#upvote'
 
   resources :users, except: [:new]
-  resources :categories, only: %i[index show new create]
+  resources :categories, only: %i[index show new create edit update]
   resources :articles do
     resources :comments
   end
