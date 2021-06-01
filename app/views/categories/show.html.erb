@@ -2,61 +2,7 @@
  <%= flash_message %>
 
   <section class="row categories">
-    <% count_image = 2
-       format_ = 'image-first'
-     %>
-
-    <% for article in @articles %>
-        <% if format_ == 'image-first' %>
-
-        <div class="col-6 col-lg-3 p-0">
-            <div style="<%= featured_img(article.image_url) %>" class="categories-img-height background-img-setting position-relative">
-                
-            </div>
-        </div>
-
-        <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
-            <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
-            <%= article.category.name %>
-            </span>
-
-            <h5 class="mt-2">
-                <%= link_to article.title, article, class: 'text-dark text-decoration-none' %>
-            </h5>
-
-            <p class="text-truncate"><%= article.text %></p>
-
-            <%= link_to 'Upvote', "/upvote/#{article.id}", class: "btn base-bg-color text-white" %>
-        </div>
-
-        <% count_image -= 1 %>
-        <% format_ = 'details-first' if count_image.zero? %>
-
-        <% elsif format_ == 'details-first' %>
-          
-          <div class="col-6 col-lg-3 p-0 px-3 py-2 bg-light">
-            <span class="border-bottom border-3 border-warning text-warning base-color fw-bolder pb-1">
-            <%= article.category.name %>
-            </span>
-
-            <h5 class="mt-2">
-                <%= link_to article.title, article, class: 'text-dark text-decoration-none' %>
-            </h5>
-
-            <p class="text-truncate"><%= article.text %></p>
-
-            <%= link_to 'Upvote', "/upvote/#{article.id}", class: "btn base-bg-color text-white" %>
-          </div>
-
-          <div class="col-6 col-lg-3 p-0">
-            <div style="<%= featured_img(article.image_url) %>" class="categories-img-height background-img-setting position-relative">
-                
-            </div>
-          </div>
-
-          <% count_image += 1 %>
-        <% format_ = 'image-first' if count_image == 2 %>
-        <% end %>
-    <% end %>
+    <%= show_category_format %>
+  </section>
 
 </div>
