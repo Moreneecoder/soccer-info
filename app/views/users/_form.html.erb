@@ -1,17 +1,4 @@
-<%= form_with(model: user) do |form| %>
-
-  <% if user.errors.any? %>
-    <div class="alert alert-danger">
-      <p class="fw-bolder"><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</p>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(model: @user) do |form| %>
   <div class="mb-3">
     <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name, class: 'form-control', 'aria-describedby': 'nameHelp' %>
@@ -19,6 +6,6 @@
   </div>
 
   <div class="actions sign-up-div text-center">
-    <%= form.submit 'Sign Up', class: "btn" %>
+    <%= form.submit btn_text, class: "btn" %>
   </div>
 <% end %>

@@ -4,19 +4,8 @@
      <%= flash_message %>
 
     <h1 class="text-center">SoccerInfo</h1>
-
-    <%= form_with(model: @user) do |form| %>
-
-    <div class="mb-3">
-        <%= form.label :name, class: 'form-label' %>
-        <%= form.text_field :name, class: 'form-control', 'aria-describedby': 'nameHelp' %>
-        <div id="nameHelp" class="form-text text-center">You only need your name to signup/signin, mate.</div>
-    </div>
-
-    <div class="actions sign-up-div text-center">
-        <%= form.submit 'Sign In', class: "btn" %>
-    </div>
-    <% end %>
+    <%= user_errors %>
+    <%= render 'form', btn_text: 'Sign In' %>
 
     <%= link_to 'SignUp', users_signup_path %>
 

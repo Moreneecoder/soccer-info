@@ -2,8 +2,8 @@
     <div class="offset-4 col-4">
 
     <h1 class="text-center">SoccerInfo</h1>
-
-    <%= render 'form', user: @user %>
+    <%= user_errors %>
+    <%= render 'form', btn_text: 'Sign Up' %>
 
     <%= link_to 'Signin', users_signin_path %>
 
