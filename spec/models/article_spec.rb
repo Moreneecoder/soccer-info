@@ -3,16 +3,19 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
   let(:user) { User.find_or_create_by(name: 'Lorem Ipsum') }
   let(:category) { Category.find_or_create_by(name: 'Europe', priority: 1) }
+  let(:image_data) do 
+    "{\"id\":\"1bcd3150b5ed4ffe160e43cc39cc5dae.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"atletico-madrid.jpeg\",
+      \"size\":32152,\"mime_type\":\"image/jpeg\",\"width\":930,\"height\":558}}"
+  end
+
   let(:article) do
-    user.articles.build(title: 'A Title Forever', text: 'Roses Are Red, Somethings are blue', image: 'image.jpg',
+    user.articles.build(title: 'A Title Forever', text: 'Roses Are Red, Somethings are blue', image_data: image_data,
                         category_id: category.id)
   end
 
   describe 'validations:' do
     describe 'title' do
       it 'must be present' do
-        article = user.articles.build(title: 'A Title Forever', text: 'Roses Are Red, Somethings are blue',
-                                      image: 'image.jpg', category_id: category.id)
         expect(article).to be_valid
 
         article.title = nil
@@ -22,9 +25,6 @@ RSpec.describe Article, type: :model do
 
     describe 'text' do
       it 'must be present' do
-        article = user.articles.build(title: 'A Title Forever', text: 'Roses Are Red, Somethings are blue',
-                                      image: 'image.jpg', category_id: category.id)
-
         article.text = nil
         expect(article).to_not be_valid
       end
@@ -32,9 +32,6 @@ RSpec.describe Article, type: :model do
 
     describe 'image' do
       it 'must be present' do
-        article = user.articles.build(title: 'A Title Forever', text: 'Roses Are Red, Somethings are blue',
-                                      image: 'image.jpg', category_id: category.id)
-
         article.image = nil
         expect(article).to_not be_valid
       end
