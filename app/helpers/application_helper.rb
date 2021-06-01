@@ -21,6 +21,13 @@ module ApplicationHelper
     end
   end
 
+  def new_object_error(object)
+    return if object.nil?
+    if object.errors.any?
+      render 'layouts/object_errors', object: object
+    end
+  end
+
   def authentication_links
     content = ''
     if session[:user_id]

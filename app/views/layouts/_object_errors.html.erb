@@ -1,0 +1,9 @@
+<div class="alert alert-danger">
+    <p class="fw-bolder"><%= pluralize(object.errors.count, "error") %> prohibited this user from being saved:</p>
+
+    <ul>
+      <% object.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+</div>
