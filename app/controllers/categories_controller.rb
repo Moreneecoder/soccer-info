@@ -11,7 +11,6 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    category_params
     @category = Category.new(category_params)
 
     if @category.save
@@ -34,7 +33,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     if @category.update(category_params)
-      flash[:notice] = "Category successfully edited"
+      flash[:notice] = 'Category successfully edited'
       redirect_to @category
     else
       render :edit

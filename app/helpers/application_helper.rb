@@ -23,9 +23,8 @@ module ApplicationHelper
 
   def new_object_error(object)
     return if object.nil?
-    if object.errors.any?
-      render 'layouts/object_errors', object: object
-    end
+
+    render 'layouts/object_errors', object: object if object.errors.any?
   end
 
   def authentication_links
