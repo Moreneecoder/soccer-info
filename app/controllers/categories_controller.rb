@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :current_user, only: %i[index show new edit update]
+  before_action :current_user, only: %i[index show new create edit update]
   before_action :get_categories, only: %i[index]
 
   def index
