@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :current_user, only: %i[writer_of_the_week]
 
   # GET /users or /users.json
   def index
@@ -47,6 +48,10 @@ class UsersController < ApplicationController
       flash[:alert] = 'Invalid Username'
       render :signin
     end
+  end
+
+  def writer_of_the_week
+    
   end
 
   # PATCH/PUT /users/1 or /users/1.json
