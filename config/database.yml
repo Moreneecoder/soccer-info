@@ -27,5 +27,5 @@ test:
 production:
   <<: *default
   database: soccer_info_production
-  username: soccer_info
+  username:
   password: <%= ENV['SOCCER_INFO_DATABASE_PASSWORD'] %>
