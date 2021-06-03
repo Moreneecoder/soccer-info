@@ -64,8 +64,8 @@ module CategoryHelper
 
   def category_image(article)
     content_tag(:div, class: 'col-6 col-lg-3 p-0') do
-      content_tag(:div, style: featured_img(article.image_url).to_s,
-                        class: 'categories-img-height background-img-setting position-relative') {}
+      content_tag(:div, '#', style: featured_img(article.image_url).to_s,
+                             class: 'categories-img-height background-img-setting position-relative')
     end
   end
 
