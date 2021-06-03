@@ -1,12 +1,12 @@
   <div class="row sticky-top-padding my-5">
-    <div class="offset-4 col-4 text-center">
+    <div class="offset-1 col-10 offset-sm-2 col-sm-8 offset-lg-3 col-lg-6 text-center">
 
     <h1>Writer Of The Week</h1>
-    <small class="text-muted">The writer of the week is determined by calculating the writer with the highest number of upvotes across their articles</small>
+    <small class="text-muted">The writer of the week is a weekly showcase of the writer with the highest number of accumulated upvotes across their articles</small>
 
-    <img width="50%" src="https://res.cloudinary.com/mobello/image/upload/v1622670144/soccerinfo/rails_uploads/undraw_profile_pic_ic5t_ccyeul.svg" class="rounded-circle mx-auto d-block my-2" alt="...">
+    <img width="40%" src="https://res.cloudinary.com/mobello/image/upload/v1622670144/soccerinfo/rails_uploads/undraw_profile_pic_ic5t_ccyeul.svg" class="rounded-circle mx-auto d-block my-2" alt="...">
 
-    <h3 class="base-color">John Doe</h3>
+    <h3 class="base-color"><%= @writer.name.capitalize %></h3>
 
     <div class="">
         <span class="social iconify" data-icon="entypo-social:twitter-with-circle" data-inline="false"></span> &nbsp;
@@ -14,7 +14,8 @@
         <span class="social iconify" data-icon="entypo-social:facebook-with-circle" data-inline="false"></span>
     </div>
 
-    <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati nemo dicta non, illo excepturi quos accusantium beatae fuga maiores sed dolores et. Neque, nihil autem.</p>
-    <div class="card base-bg-color border-0 text-white fw-bolder py-2">27 votes this week</div>
+    <p class="text-muted">A writer with a penchant for the controversial. I have written sports content on both local, continental and international topics. I am a two time winner of
+    the Pulitzer winner for my unmatched pen craft in the sports industry &#128521;.</p>
+    <div class="card base-bg-color border-0 text-white fw-bolder py-2"><%= @votes %> upvotes this week</div>
     </div>
   </div>

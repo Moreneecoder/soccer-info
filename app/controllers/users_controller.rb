@@ -51,7 +51,11 @@ class UsersController < ApplicationController
   end
 
   def writer_of_the_week
-    
+    # user_by_votes = User.includes(:articles).map{ |author| author.articles.includes(:votes).map {|article| { author.id => article.votes.count } } }.flatten
+
+    @writer = top_writer
+    @votes = top_writer_votes
+
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -91,5 +95,29 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:name)
+  end
+
+  def group_authors_by_votes
+    user_by_votes = User.includes(:articles).map do |author|
+      author_votes_pair = [author.id, 0]
+
+      author.articles.includes(:votes).each do |article|
+        author_votes_pair[1] += article.votes.count
+      end
+
+      author_votes_pair
+
+    end
+
+    user_by_votes.to_h
+  end
+
+  def top_writer
+    top_writer_id = group_authors_by_votes.max_by{|k,v| v}[0]
+    User.find(top_writer_id)
+  end
+
+  def top_writer_votes
+    group_authors_by_votes.max_by{|k,v| v}[1]
   end
 end
