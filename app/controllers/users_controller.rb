@@ -55,7 +55,6 @@ class UsersController < ApplicationController
 
     @writer = get_top_writer
     @votes = top_writer_votes
-
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -106,18 +105,17 @@ class UsersController < ApplicationController
       end
 
       author_votes_pair
-
     end
 
     user_by_votes.to_h
   end
 
   def get_top_writer
-    top_writer_id = group_authors_by_votes.max_by{|k,v| v}[0]
+    top_writer_id = group_authors_by_votes.max_by { |_k, v| v }[0]
     User.find(top_writer_id)
   end
 
   def top_writer_votes
-    group_authors_by_votes.max_by{|k,v| v}[1]
+    group_authors_by_votes.max_by { |_k, v| v }[1]
   end
 end
