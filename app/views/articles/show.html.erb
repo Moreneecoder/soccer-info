@@ -6,6 +6,8 @@
       <h4 class="fw-bolder"> <%= @article.title %> </h4>
       <p>by <%= @article.author.name %></p>
 
+      <%= link_to 'Upvote', "/upvote/#{@article.id}", class: 'btn base-bg-color text-white mb-3' %>
+
       <div style="<%= featured_img(@article.image_url) %>" class="featured-img-height background-img-setting position-relative mb-3">
       
       </div>
