@@ -4,7 +4,7 @@
   <section class="row mt-3">
     <div class="col-12">
       <h4 class="fw-bolder"> <%= @article.title %> </h4>
-      <p>by <%= @article.author.name %></p>
+      <p>by <span class="fw-bolder"><%= @article.author.name %></span></p>
 
       <%= link_to 'Upvote', "/upvote/#{@article.id}", class: 'btn base-bg-color text-white mb-3' %>
 
