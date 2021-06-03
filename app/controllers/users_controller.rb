@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
-  before_action :current_user, only: %i[writer_of_the_week]
+  before_action :current_user, only: %i[top_writer]
 
   # GET /users or /users.json
   def index
@@ -50,10 +50,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def writer_of_the_week
+  def top_writer
     # user_by_votes = User.includes(:articles).map{ |author| author.articles.includes(:votes).map {|article| { author.id => article.votes.count } } }.flatten
 
-    @writer = top_writer
+    @writer = get_top_writer
     @votes = top_writer_votes
 
   end
@@ -112,7 +112,7 @@ class UsersController < ApplicationController
     user_by_votes.to_h
   end
 
-  def top_writer
+  def get_top_writer
     top_writer_id = group_authors_by_votes.max_by{|k,v| v}[0]
     User.find(top_writer_id)
   end

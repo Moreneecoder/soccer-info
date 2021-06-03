@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'users/signin', to: 'users#signin'
   post 'users/signin', to: 'users#start_user_session'
   get 'users/logout', to: 'users#end_user_session'
-  get 'writer_of_the_week', to: 'users#writer_of_the_week'
+  get 'top_writer', to: 'users#top_writer'
   get 'upvote/:id', to: 'votes#upvote'
 
   resources :users, except: [:new]
