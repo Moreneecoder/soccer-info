@@ -16,6 +16,10 @@ h1 {
 }
 
 .navbar .navbar-brand {
+  color: #36454f;
+}
+
+.navbar .navbar-brand:hover {
   color: $base-color;
 }
 
