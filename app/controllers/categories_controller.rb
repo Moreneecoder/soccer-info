@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :current_user, only: %i[index show new create edit update]
-  before_action :get_categories, only: %i[index]
+  before_action :categories_by_order, only: %i[index]
 
   def index
     @featured = Article.find(featured) if Article.exists?(id: featured)
@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
     highest.keys.first
   end
 
-  def get_categories
+  def categories_by_order
     @categories = Category.order('priority ASC')
   end
 

@@ -51,9 +51,7 @@ class UsersController < ApplicationController
   end
 
   def top_writer
-    # user_by_votes = User.includes(:articles).map{ |author| author.articles.includes(:votes).map {|article| { author.id => article.votes.count } } }.flatten
-
-    @writer = get_top_writer
+    @writer = fetch_top_writer
     @votes = top_writer_votes
   end
 
@@ -110,7 +108,7 @@ class UsersController < ApplicationController
     user_by_votes.to_h
   end
 
-  def get_top_writer
+  def fetch_top_writer
     top_writer_id = group_authors_by_votes.max_by { |_k, v| v }[0]
     User.find(top_writer_id)
   end

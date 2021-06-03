@@ -4,8 +4,8 @@ RSpec.describe Article, type: :model do
   let(:user) { User.find_or_create_by(name: 'Lorem Ipsum') }
   let(:category) { Category.find_or_create_by(name: 'Europe', priority: 1) }
   let(:image_data) do
-    "{\"id\":\"1bcd3150b5ed4ffe160e43cc39cc5dae.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"atletico-madrid.jpeg\",
-      \"size\":32152,\"mime_type\":\"image/jpeg\",\"width\":930,\"height\":558}}"
+    "{\"id\":\"1bcd3150b5ed4ffe160e43cc39cc5dae.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":
+    \"atletico-madrid.jpeg\",\"size\":32152,\"mime_type\":\"image/jpeg\",\"width\":930,\"height\":558}}"
   end
 
   let(:article) do

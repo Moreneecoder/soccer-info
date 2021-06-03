@@ -15,7 +15,7 @@ module CategoryHelper
       next if category.articles.empty?
 
       content << content_tag(:div, class: 'col-6 col-lg-3 p-0') do
-        content_tag(:div, 'style': featured_img(category.articles.last.image_url).to_s,
+        content_tag(:div, style: featured_img(category.articles.last.image_url).to_s,
                           class: 'categories-img-height background-img-setting position-relative') do
           category_display_name(category) + category_display_link(category)
         end
@@ -45,17 +45,20 @@ module CategoryHelper
     content = ''
 
     @articles.each do |article|
-      if format_ == 'image-first'
-        content << category_image(article) + category_article(article)
 
-        count_image -= 1
-        format_ = 'details-first' if count_image.zero?
-      elsif format_ == 'details-first'
-        content << category_article(article) + category_image(article)
+      case format_
+        when 'image-first'
+          content << category_image(article) + category_article(article)
 
-        count_image += 1
-        format_ = 'image-first' if count_image == 2
+          count_image -= 1
+          format_ = 'details-first' if count_image.zero?
+        when 'details-first'
+          content << category_article(article) + category_image(article)
+
+          count_image += 1
+          format_ = 'image-first' if count_image == 2
       end
+
     end
 
     content.html_safe
@@ -63,9 +66,8 @@ module CategoryHelper
 
   def category_image(article)
     content_tag(:div, class: 'col-6 col-lg-3 p-0') do
-      content_tag(:div, 'style': featured_img(article.image_url).to_s,
-                        class: 'categories-img-height background-img-setting position-relative') do
-      end
+      content_tag(:div, style: featured_img(article.image_url).to_s, 
+                  class: 'categories-img-height background-img-setting position-relative') do end
     end
   end
 
