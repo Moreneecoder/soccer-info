@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :current_user, only: %i[create]
 
   def create
-    p @article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     @comment = @article.comments.build(user_id: session[:user_id], body: params[:comment][:body])
 
     if @comment.save

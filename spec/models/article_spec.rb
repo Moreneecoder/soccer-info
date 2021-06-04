@@ -51,6 +51,11 @@ RSpec.describe Article, type: :model do
       expect(article.macro).to eq(:has_many)
     end
 
+    it 'has many comments' do
+      article = Article.reflect_on_association(:comments)
+      expect(article.macro).to eq(:has_many)
+    end
+
     it 'belongs to an author' do
       article = Article.reflect_on_association(:author)
       expect(article.macro).to eq(:belongs_to)
