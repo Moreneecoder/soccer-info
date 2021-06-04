@@ -1,0 +1,92 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+$base-color: #eb712f;
+$footer-color: #403230;
+
+.base-color {
+  color: $base-color;
+}
+
+.base-bg-color {
+  background-color: $base-color;
+}
+
+h1 {
+  color: $base-color;
+}
+
+.navbar .navbar-brand {
+  color: #36454f;
+}
+
+.navbar .navbar-brand:hover {
+  color: $base-color;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: $base-color;
+  text-decoration: underline;
+}
+
+.sign-up-div .btn {
+  color: white;
+  background-color: $base-color;
+}
+
+.sticky-top-padding {
+  padding-top: 58px;
+}
+
+.featured-img {
+  background-image:
+    linear-gradient(to bottom, rgba(11, 11, 13, 0.3), rgba(0, 0, 0, 0.923)),
+    url("https://cdn.pixabay.com/photo/2014/03/18/20/21/man-290186_1280.jpg");
+}
+
+.featured-item {
+  bottom: 0;
+  left: 10px;
+}
+
+.featured-img-height {
+  height: 500px;
+}
+
+.background-img-setting {
+  background-color: #ccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.categories-img-height {
+  height: 250px;
+}
+
+.category-name {
+  top: 10px;
+  left: 25px;
+}
+
+.category-title {
+  bottom: 15px;
+  left: 25px;
+}
+
+footer {
+  background-color: $footer-color;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer :nth-child(2) a,
+footer :nth-child(3) :first-child {
+  font-size: 0.9em;
+}
+
+.social {
+  font-size: 1.4em;
+  color: $base-color;
+}

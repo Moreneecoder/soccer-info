@@ -1,0 +1,31 @@
+<div class="sticky-top-padding container-md">
+ <%= flash_message %>
+ 
+  <section class="row mt-3">
+    <div class="col-12">
+      <h4 class="fw-bolder"> <%= @article.title %> </h4>
+      <p>by <span class="fw-bolder"><%= @article.author.name %></span></p>
+
+      <%= link_to 'Upvote', "/upvote/#{@article.id}", class: 'btn base-bg-color text-white mb-3' %>
+
+      <div style="<%= featured_img(@article.image_url) %>" class="featured-img-height background-img-setting position-relative mb-3">
+      
+      </div>
+
+      <p><%= @article.text %></p>
+    </div>
+  </section>
+
+    <div class="row">
+        <div class="col-md-5">
+
+        <%= comment_title %>
+
+        <%= display_comments %>
+
+        </div>
+    </div>
+
+    <%= display_comment_form %>
+
+</div>
