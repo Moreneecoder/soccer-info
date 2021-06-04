@@ -27,8 +27,8 @@ RSpec.describe Comment, type: :model do
       it 'must be not be more than 250 words' do
         body = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur praesentium tempore,
         rerum eos in, perferendis, expedita deleniti nulla ducimus aut nihil harum maxime deserunt veritatis corrupti
-        aliquam voluptatem? Recusandae sapiente adipisci architecto beatae minima dicta, animi rerum labore deserunt itaque,
-         consequuntur voluptas? Quia eligendi'
+        aliquam voluptatem? Recusandae sapiente adipisci architecto beatae minima dicta, animi rerum labore deserunt
+         itaque, consequuntur voluptas? Quia eligendi'
 
         expect(comment).to be_valid
 

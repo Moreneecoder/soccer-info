@@ -14,7 +14,7 @@ RSpec.describe 'UpVote', type: :feature do
   end
 
   scenario 'must have a unique author and article pair' do
-    vote1 = Vote.create!(user_id: user.id, article_id: article.id)
+    Vote.create!(user_id: user.id, article_id: article.id)
     validate = Vote.exists? user_id: user.id, article_id: article.id
     expect(validate).to be true
     expect(user.votes.count).to_not eq 0

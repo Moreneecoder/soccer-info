@@ -7,7 +7,7 @@ RSpec.describe 'Sign up', type: :feature do
     click_button 'Sign Up'
     sleep(3)
 
-    user = User.find_by(name: 'JaneDoe')
+    User.find_by(name: 'JaneDoe')
     expect(current_path).to eq('/')
   end
 end
@@ -40,7 +40,7 @@ RSpec.describe 'Top Writer', type: :feature do
   end
 
   scenario 'open and display top writer information' do
-    vote = Vote.create(user_id: user.id, article_id: article.id)
+    Vote.create(user_id: user.id, article_id: article.id)
 
     visit top_writer_url
     sleep(3)
