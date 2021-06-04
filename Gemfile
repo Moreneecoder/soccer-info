@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -8,7 +6,16 @@ ruby '3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# group :development, :test do
+#   gem 'sqlite3'
+# end
+
+# group :production do
+#   gem 'pg'
+# end
+
+gem 'pg', '>= 0.18', '< 2.0'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -27,7 +34,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'image_processing', '~> 1.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'shrine', '~> 3.3'
+gem 'shrine-cloudinary', '~> 1.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -35,6 +45,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -57,8 +68,8 @@ group :test do
 end
 
 group :development, :test do
-  gem "database_cleaner"
-  gem "rspec-rails"
+  gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 # group :test do

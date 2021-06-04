@@ -1,22 +1,11 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<%= form_with(model: @user) do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control', 'aria-describedby': 'nameHelp' %>
+    <div id="nameHelp" class="form-text text-center">You only need your name to signup/signin, mate.</div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions sign-up-div text-center">
+    <%= form.submit btn_text, class: "btn" %>
   </div>
 <% end %>

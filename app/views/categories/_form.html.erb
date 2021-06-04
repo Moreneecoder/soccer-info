@@ -1,0 +1,17 @@
+<%= form_with(model: @category) do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control', 'aria-describedby': 'nameHelp' %>
+    <div id="nameHelp" class="form-text text-center">Enter a name for the new category</div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :priority, class: 'form-label' %>
+    <%= form.number_field :priority, class: 'form-control', 'aria-describedby': 'priorityHelp', 'min': 1 %>
+    <div id="priorityHelp" class="form-text text-center">This control the priority that categories are displayed.</div>
+  </div>
+
+  <div class="actions sign-up-div text-center">
+    <%= form.submit class: "btn" %>
+  </div>
+<% end %>
