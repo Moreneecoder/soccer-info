@@ -25,17 +25,28 @@ RSpec.describe Comment, type: :model do
       end
 
       it 'must be not be more than 250 words' do
-        body = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur praesentium tempore, 
-        rerum eos in, perferendis, expedita deleniti nulla ducimus aut nihil harum maxime deserunt veritatis corrupti 
+        body = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus consequatur praesentium tempore,
+        rerum eos in, perferendis, expedita deleniti nulla ducimus aut nihil harum maxime deserunt veritatis corrupti
         aliquam voluptatem? Recusandae sapiente adipisci architecto beatae minima dicta, animi rerum labore deserunt itaque,
          consequuntur voluptas? Quia eligendi'
-         
+
         expect(comment).to be_valid
 
         comment.body = body
         expect(comment).to_not be_valid
       end
+    end
+  end
 
+  describe 'associations:' do
+    it 'belongs to a user' do
+      comment = Comment.reflect_on_association(:user)
+      expect(comment.macro).to eq(:belongs_to)
+    end
+
+    it 'belongs to an article' do
+      comment = Comment.reflect_on_association(:article)
+      expect(comment.macro).to eq(:belongs_to)
     end
   end
 end
