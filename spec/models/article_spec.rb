@@ -22,7 +22,7 @@ RSpec.describe Article, type: :model do
         expect(article).to_not be_valid
       end
 
-      it 'must be not exceed 100 characters' do
+      it 'must not exceed 100 characters' do
         expect(article).to be_valid
 
         article.title = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos voluptas labore cum l

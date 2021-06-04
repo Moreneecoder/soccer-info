@@ -10,6 +10,22 @@ RSpec.describe UsersController, type: :routing do
       expect(get: 'users/signup').to route_to('users#new')
     end
 
+    it 'routes to #signin' do
+      expect(get: 'users/signin').to route_to('users#signin')
+    end
+
+    it 'routes to #start_user_session' do
+      expect(post: 'users/signin').to route_to('users#start_user_session')
+    end
+
+    it 'routes to #end_user_session' do
+      expect(get: 'users/logout').to route_to('users#end_user_session')
+    end
+
+    it 'routes to #top_writer' do
+      expect(get: '/top_writer').to route_to('users#top_writer')
+    end
+
     it 'routes to #show' do
       expect(get: '/users/1').to route_to('users#show', id: '1')
     end
